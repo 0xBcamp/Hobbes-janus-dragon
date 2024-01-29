@@ -1,9 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
-import { MoonApi } from '@moonup/moon-api';
+import { Accounts } from '@moonup/moon-api';
 import { BigNumber } from '@ethersproject/bignumber';
 
-const moonApi = new MoonApi({
+const moonApi = new Accounts({
   Auth: {
     securityWorker: () => Promise.resolve('test'),
   },
