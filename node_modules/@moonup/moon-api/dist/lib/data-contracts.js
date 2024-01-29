@@ -1,0 +1,2 @@
+"use strict";var s=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var o=Object.getOwnPropertyNames;var g=Object.prototype.hasOwnProperty;var c=(t,n,i,e)=>{if(n&&typeof n=="object"||typeof n=="function")for(let r of o(n))!g.call(t,r)&&r!==i&&s(t,r,{get:()=>n[r],enumerable:!(e=a(n,r))||e.enumerable});return t};var p=t=>c(s({},"__esModule",{value:!0}),t);var l={};module.exports=p(l);
+//# sourceMappingURL=data-contracts.js.map

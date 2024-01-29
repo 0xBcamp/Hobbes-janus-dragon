@@ -1,4 +1,5 @@
 import logo from './logo.svg';
+import { Moon } from '@moon/sdk';
 import './App.css';
 
 function App() {
