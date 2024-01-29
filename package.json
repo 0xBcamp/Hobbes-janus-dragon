@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@moonup/moon-api": "^0.0.23"
+  }
+}

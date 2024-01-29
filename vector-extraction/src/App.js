@@ -1,5 +1,4 @@
 import logo from './logo.svg';
-// import {fetchDataAndAggregate } from 'moon-sdk-main/my-app/src/pages/usemoonsdk.tsx';
 import './App.css';
 import { Accounts } from '@moonup/moon-api';
 import { BigNumber } from '@ethersproject/bignumber';

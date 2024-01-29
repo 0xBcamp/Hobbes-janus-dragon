@@ -1,0 +1,69 @@
+{
+  "name": "@moonup/moon-api",
+  "version": "0.0.23",
+  "type": "commonjs",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "typings": "./dist/index.d.ts",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "import": {
+      "types": "./dist/index.d.mts",
+      "default": "./dist/index.mjs"
+    },
+    "require": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsup --watch",
+    "build": "tsup",
+    "test": "dts test",
+    "lint": "dts lint",
+    "prepare": "tsup",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "size-limit": [
+    {
+      "path": "dist/moon-api.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/moon-api.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^11.0.1",
+    "@tsconfig/recommended": "^1.0.3",
+    "dts-cli": "^2.0.3",
+    "husky": "^8.0.3",
+    "size-limit": "^11.0.1",
+    "tslib": "^2.6.2",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@simplewebauthn/server": "^8.3.5"
+  }
+}
