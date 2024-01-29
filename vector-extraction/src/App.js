@@ -13,8 +13,12 @@ const moonApi = new Auth({
 async function main() {
   const account = await Accounts.getAccount('0xB0739AaF97B5F12D3529ec6C109fbE1A9c9F6bAe');
 
-  console.log(account);
+  // Filter the data to specifically attestations
+  const attestations = account.data.filter(data => data.type === 'attestation');
+
+  console.log(attestations);
 }
+
 
 main();
 
