@@ -1,22 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
-import { Auth } from '@moonup/moon-api';
-import { Accounts } from '@moonup/moon-api';
-import { BigNumber } from '@ethersproject/bignumber';
-
-const moonApi = new Auth({
-  Auth: {
-    securityWorker: () => Promise.resolve('test'),
-  },
-});
-
+import {,
+  AccountResponse,,
+  Accounts,
+  ContentType,
+} from '@moonup/moon-api';
 async function main() {
-  const account = await Accounts.getAccount('0xB0739AaF97B5F12D3529ec6C109fbE1A9c9F6bAe');
-
-  // Filter the data to specifically attestations
-  const attestations = account.data.filter(data => data.type === 'attestation');
-
-  console.log(attestations);
+    const accountsSDK = new Accounts({
+      baseUrl: 'https://vault-api.usemoon.ai',
+      baseApiParams: {
+        secure: true,
+        type: ContentType.Json,
+        format: 'json',
+      },
+      securityWorker: async (securityData: any) => {
+        return Promise.resolve({
+          headers: {
+            Authorization: `Bearer ${securityData.token}`,
+          },
+        });
+    });
+  accountsSDK.setSecurityData({
+      token: token, // get from authentication object 
+    });
+const account = await accountsSDK.getAccount('0xB0739AaF97B5F12D3529ec6C109fbE1A9c9F6bAe');
+console.log(account);
 }
 
 
@@ -32,5 +38,3 @@ function App() {
 }
 
 export default App;
-
-
