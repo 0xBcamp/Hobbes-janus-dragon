@@ -19,7 +19,7 @@ async function main() {
             Authorization: `Bearer ${securityData.token}`,
           },
         });
-    });
+    }});
 
   accountsSDK.setSecurityData({
       token: token, // get from authentication object 
@@ -30,7 +30,7 @@ console.log(account);
   console.error(`Error: ${error}`);
 }
 
-
+}
 main();
 
 function App() {
