@@ -18,6 +18,36 @@ async function main() {
           },
         });
     });
+
+    securityWorker: async (securityData: { token: string }) => {
+      // Directly returning the object without wrapping it with Promise.resolve,
+      // as async functions automatically wrap return values in a Promise.
+      return {
+        headers: {
+          Authorization: `Bearer ${securityData.token}`,
+        },
+      };
+    },
+  });
+
+  // Correctly passing the 'token' to setSecurityData.
+  accountsSDK.setSecurityData({ token });
+
+  // Assuming getAccount returns an AccountResponse or similar type, 
+  // you should catch any errors that might occur during the API call.
+  try {
+    const account: AccountResponse = await accountsSDK.getAccount('0xB0739AaF97B5F12D3529ec6C109fbE1A9c9F6bAe');
+    console.log(account);
+  } catch (error) {
+    console.error("Failed to fetch account", error);
+  }
+}
+
+main();
+
+
+
+
   accountsSDK.setSecurityData({
       token: token, // get from authentication object 
     });
